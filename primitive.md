@@ -17,9 +17,9 @@
 
 
 ## Сколько ключевых слов зарезервировано языком, что это за слова, какие из них не используются?
-+ 50, два из них не используются: const, goto;
+50, два из них не используются: const, goto;
 
-+ Для запоминания это:
+Для запоминания это:
 + Примитивы (byte, short, int, long, char, float, double, boolean)
 + Циклы и ветвления (if, else, switch, case, default, while, do, break, continue, for)
 + Исключения (try, catch, finally, throw, throws)
