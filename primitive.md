@@ -52,6 +52,7 @@ http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html
 + double (вещественные числа, 8 байт)
 + char (символ Unicode, 2 байта, [0, 65536])
 + boolean (значение истина/ложь, используется int, зависит от JVM)
+
 Ссылочные. В ссылочные типы входят все классы, интерфейсы, массивы.
 
 http://stackoverflow.com/questions/383551/what-is-the-size-of-a-boolean-variable-in-java
