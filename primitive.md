@@ -29,7 +29,7 @@
 + Многопоточность (synchronized, volatile)
 + instanceof, enum, assert, transient, strictfp, const, goto
 
-+ http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html
+http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html
 
 [к оглавлению](#примитивные-типы)
 
