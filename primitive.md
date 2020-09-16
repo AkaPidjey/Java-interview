@@ -8,6 +8,7 @@
 + [Какие логические операции и операторы вы знаете?](#Какие-логические-операции-и-операторы-вы-знаете)
 + [Что такое тернарный оператор выбора?](#Что-такое-тернарный-оператор-выбора)
 + [Какие побитовые операции вы знаете?](#Какие-побитовые-операции-вы-знаете)
++ [Что вы знаете о преобразовании примитивных типов данных, есть ли потеря данных, можно ли преобразовать логический тип?](#Что-вы-знаете-о-преобразовании-примитивных-типов-данных-есть-ли-потеря-данных-можно-ли-преобразовать-логический-тип)
 + [Что такое _autoboxing («автоупаковка»)_ в Java и каковы правила упаковки примитивных типов в классы-обертки?](#Что-такое-autoboxing-автоупаковка-в-java-и-каковы-правила-упаковки-примитивных-типов-в-классы-обертки)
 + [Какие есть особенности класса `String`?](#Какие-есть-особенности-класса-string)
 + [Почему `String` неизменяемый и финализированный класс?](#Почему-string-неизменяемый-и-финализированный-класс)
@@ -102,6 +103,118 @@ boolean — боремся за Java память… https://habrahabr.ru/post/7
 + `>>>=`: Сдвиг вправо без учёта знака с присваиванием;
 + `<<`: Сдвиг влево (умножение на 2 в степени сдвига);
 + `<<=`: Сдвиг влево с присваиванием.
+
+[к оглавлению](#примитивные-типы)
+
+## Что вы знаете о преобразовании примитивных типов данных, есть ли потеря данных, можно ли преобразовать логический тип?
+Преобразование может быть неявным и явным (приведение типов). Неявное преобразование может выполняться если:
+
+типы совместимы (например – оба целочисленные)
+размер “принимающего” типа больше чем у того, который преобразуется (так называемое “преобразование с расширением”)
+int a = 123454;
+double b =  a; //неявное преобразование - преобразование с расширением
+int a = 123454;
+double b =  a; //неявное преобразование - преобразование с расширением
+Явное преобразование имеет вид переменная_нового_типа = (новый_тип) имя переменной;
+int a;
+byte b = (byte) a; //b будет остатком от деления a на диапазон byte, может быть потеря данных
+int a;
+byte b = (byte) a; //b будет остатком от деления a на диапазон byte, может быть потеря данных
+Примеры:
+
+public static void typeConverterExample() {
+        long a = 100L;
+        double b = 300.0;
+        Object ab = a + b;
+        System.out.println(ab.getClass().getName() + " value: " + ab); //java.lang.Double value: 400.0
+
+        double c = 1000.05;
+        long d = 1000;
+        Object cd = c+d;
+        System.out.println(cd.getClass().getName() +" value: " + cd);//java.lang.Double value: 2000.05
+    }
+
+    public static void typeNarrowing() {
+        int a0 = 64;
+        int a = 257;
+        int a2 = 126;
+        int a3 = 129;
+        byte b0 = (byte) a0;
+        byte b = (byte) a;
+        byte b2 = (byte) a2;
+        byte b3 = (byte) a3;
+        System.out.println(b0+ " " + b + " " + b2 + " " + b3); //64 1 126 -127
+
+        double c = 56.9876;
+        int d = (int) c;
+        System.out.println(d); //56
+
+        long e = 1000L;
+        float f = (float) e;
+        System.out.println(f); //1000.0
+    }
+
+public static void typeConverterExample() {
+        long a = 100L;
+        double b = 300.0;
+        Object ab = a + b;
+        System.out.println(ab.getClass().getName() + " value: " + ab); //java.lang.Double value: 400.0
+ 
+        double c = 1000.05;
+        long d = 1000;
+        Object cd = c+d;
+        System.out.println(cd.getClass().getName() +" value: " + cd);//java.lang.Double value: 2000.05
+    }
+ 
+    public static void typeNarrowing() {
+        int a0 = 64;
+        int a = 257;
+        int a2 = 126;
+        int a3 = 129;
+        byte b0 = (byte) a0;
+        byte b = (byte) a;
+        byte b2 = (byte) a2;
+        byte b3 = (byte) a3;
+        System.out.println(b0+ " " + b + " " + b2 + " " + b3); //64 1 126 -127
+ 
+        double c = 56.9876;
+        int d = (int) c;
+        System.out.println(d); //56
+ 
+        long e = 1000L;
+        float f = (float) e;
+        System.out.println(f); //1000.0
+    }
+При повышении типа byte>short; short>int; int>long; float>double; char>int информация не потеряется. При сужении возможна потеря информации (см. пример выше byte = (byte) int).
+
+При различных операциях может происходить повышение типов в порядке “усиления” к более информативному типу. Например складывая int и double получим тип double. Но есть и особенность, например сложив double (8 байт) и long (8 байт) Java оставит знаки после запятой (double), а не более “длинный” тип. Аналогичный пример с вещественной частью:
+
+  long a = 100L;
+        double b = a;
+        Object ab = a + b;
+        System.out.println(ab.getClass().getName() + " value: " + ab); //java.lang.Double value: 200.0
+
+        float c = 100;
+        long d = 1000;
+        Object cd = c - d;
+        System.out.println(cd.getClass().getName() +" value: " + cd);//java.lang.Float value: -900.0
+
+  long a = 100L;
+        double b = a;
+        Object ab = a + b;
+        System.out.println(ab.getClass().getName() + " value: " + ab); //java.lang.Double value: 200.0
+ 
+        float c = 100;
+        long d = 1000;
+        Object cd = c - d;
+        System.out.println(cd.getClass().getName() +" value: " + cd);//java.lang.Float value: -900.0
+Кратко можно записать такие правила:
+
+byte, short, char в выражениях всегда повышаются до int
+если в выражении участвует тип long – то именно к этому типу будет приведён результат
+если в выражении участвует float – то результат приводится к float
+если один из операндов имеет тип double – то к этому типу будет приведён весь результат
+При выборе между длиной и возможностью сохранить дробную часть – будет выбрана дробная часть
 
 [к оглавлению](#примитивные-типы)
 
