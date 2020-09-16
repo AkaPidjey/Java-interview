@@ -1,5 +1,3 @@
-[Свёрстанные вопросы и ответы](book/Java_questions.pdf) [by Victoria Demidova](https://github.com/VictoriaDemidova)
-
 # Вопросы для собеседования на Java Developer
 
 + [ООП](#ООП) ![icon][done]
@@ -755,3 +753,4 @@
 
 ## Источники
 + [Вопросы на собеседование Junior Java Developer](https://jsehelper.blogspot.ru)
++ [Свёрстанные вопросы и ответы](book/Java_questions.pdf) [by Victoria Demidova](https://github.com/VictoriaDemidova)
