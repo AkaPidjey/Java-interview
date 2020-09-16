@@ -2,7 +2,7 @@
 
 # Примитивные типы
 ## Примитивные типы / Переменные / Операторы / Циклы / Массивы
-+ [Сколько ключевых слов зарезервировано языком, что это за слова, какие из них не используются?](#Сколько-ключевых-слов-зарезервировано-языком-что-это-за-слова-какие-из-них-не-используются?)
++ [Сколько ключевых слов зарезервировано языком, что это за слова, какие из них не используются?](#Сколько-ключевых-слов-зарезервировано-языком-что-это-за-слова-какие-из-них-не-используются)
 + [Какие логические операции и операторы вы знаете?](#Какие-логические-операции-и-операторы-вы-знаете)
 + [Что такое тернарный оператор выбора?](#Что-такое-тернарный-оператор-выбора)
 + [Какие побитовые операции вы знаете?](#Какие-побитовые-операции-вы-знаете)
@@ -17,20 +17,19 @@
 
 
 ## Сколько ключевых слов зарезервировано языком, что это за слова, какие из них не используются?
-50, два из них не используются: const, goto;
++ 50, два из них не используются: const, goto;
 
-Для запоминания это:
++ Для запоминания это:
++ Примитивы (byte, short, int, long, char, float, double, boolean)
++ Циклы и ветвления (if, else, switch, case, default, while, do, break, continue, for)
++ Исключения (try, catch, finally, throw, throws)
++ Области видимости (private, protected, public)
++ Объявление \ Импорт (import, package, class, interface, extends, implements, static, final, void, abstract, native)
++ Создание \ Возврат \ Вызов (new, return, this, super)
++ Многопоточность (synchronized, volatile)
++ instanceof, enum, assert, transient, strictfp, const, goto
 
-Примитивы (byte, short, int, long, char, float, double, boolean)
-Циклы и ветвления (if, else, switch, case, default, while, do, break, continue, for)
-Исключения (try, catch, finally, throw, throws)
-Области видимости (private, protected, public)
-Объявление \ Импорт (import, package, class, interface, extends, implements, static, final, void, abstract, native)
-Создание \ Возврат \ Вызов (new, return, this, super)
-Многопоточность (synchronized, volatile)
-instanceof, enum, assert, transient, strictfp, const, goto
-
-http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html
++ http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html
 
 [к оглавлению](#примитивные-типы)
 
