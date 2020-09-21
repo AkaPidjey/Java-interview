@@ -143,6 +143,7 @@
 + [В `equals()` требуется проверять, что аргумент `equals(Object that)` такого же типа что и сам объект. В чем разница между `this.getClass() == that.getClass()` и `that instanceof MyClass`?](objects.md#В-equals-требуется-проверять-что-аргумент-equalsobject-that-такого-же-типа-что-и-сам-объект-В-чем-разница-между-thisgetclass--thatgetclass-и-that-instanceof-myclass)
 + [Можно ли реализовать метод `equals()` класса `MyClass` вот так: `class MyClass {public boolean equals(MyClass that) {return this == that;}}`?](objects.md#Можно-ли-реализовать-метод-equals-класса-myclass-вот-так-class-myclass-public-boolean-equalsmyclass-that-return-this--that)
 + [Есть класс `Point{int x, y;}`. Почему хэш-код в виде `31 * x + y` предпочтительнее чем `x + y`?](objects.md#Есть-класс-pointint-x-y-Почему-хэш-код-в-виде-31--x--y-предпочтительнее-чем-x--y)
++ [Класс Object и его методы](objects.md#Класс-Object-и-его-методы)
 
 [к оглавлению](#Вопросы-для-собеседования-на-java-developer)
 
